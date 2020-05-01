@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * @author HelloLiu
  * @ClassName: XiaoQiangDegradeRuleNacosPublisher
- * @Description: 热点规则推送
+ * @Description: 降级规则推送
  * @Date: 2020/5/1 19:33
  */
 @Component("XiaoQiangDegradeRuleNacosPublisher")

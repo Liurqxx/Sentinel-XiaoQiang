@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author HelloLiu
  * @ClassName: XiaoQiangDegradeRuleNacosProvider
- * @Description: 热点则提供者
+ * @Description: 降级则提供者
  * @Date: 2020/5/1 19:33
  */
 @Component("XiaoQiangDegradeRuleNacosProvider")
