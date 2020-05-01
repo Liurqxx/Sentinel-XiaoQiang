@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author HelloLiu
- * @ClassName: XiaoQiangHotParamFlowRuleNacosProvider
+ * @ClassName: XiaoQiangSysRuleNacosProvider
  * @Description: 系统规则推送
  * @Date: 2020/5/1 19:33
  */
