@@ -43,7 +43,7 @@ public class NacosConfig {
 
     @Bean
     public ConfigService nacosConfigService() throws Exception {
-        //添加nacos-server地址
+        //TODO 添加nacos-server地址
         return ConfigFactory.createConfigService("localhost");
     }
 }

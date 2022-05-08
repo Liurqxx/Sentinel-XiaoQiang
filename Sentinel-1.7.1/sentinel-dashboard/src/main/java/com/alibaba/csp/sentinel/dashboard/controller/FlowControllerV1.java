@@ -25,8 +25,6 @@ import com.alibaba.csp.sentinel.dashboard.auth.AuthAction;
 import com.alibaba.csp.sentinel.dashboard.auth.AuthService.PrivilegeType;
 import com.alibaba.csp.sentinel.dashboard.rule.DynamicRuleProvider;
 import com.alibaba.csp.sentinel.dashboard.rule.DynamicRulePublisher;
-import com.alibaba.csp.sentinel.dashboard.rule.nacos.flow.XiaoQiangFlowRuleNacosProvider;
-import com.alibaba.csp.sentinel.dashboard.rule.nacos.flow.XiaoQiangFlowRuleNacosPublisher;
 import com.alibaba.csp.sentinel.util.StringUtil;
 
 import com.alibaba.csp.sentinel.dashboard.client.SentinelApiClient;
@@ -90,7 +88,8 @@ public class FlowControllerV1 {
             return Result.ofFail(-1, "port can't be null");
         }
         try {
-//            List<FlowRuleEntity> rules = sentinelApiClient.fetchFlowRuleOfMachine(app, ip, port);
+            //get rules from sentinel dashboard center
+//            List<FlowRuleEntity> ruless = sentinelApiClient.fetchFlowRuleOfMachine(app, ip, port);
             // get rules from nacos center
             List<FlowRuleEntity> rules = ruleProvider.getRules(app);
             rules = repository.saveAll(rules);
@@ -164,7 +163,7 @@ public class FlowControllerV1 {
         try {
             entity = repository.save(entity);
 
-//            publishRules(entity.getApp(), entity.getIp(), entity.getPort()).get(5000, TimeUnit.MILLISECONDS);
+            // publishRules(entity.getApp(), entity.getIp(), entity.getPort()).get(5000, TimeUnit.MILLISECONDS);
             // publish rules to nacos center
             publishRules(entity.getApp());
             return Result.ofSuccess(entity);

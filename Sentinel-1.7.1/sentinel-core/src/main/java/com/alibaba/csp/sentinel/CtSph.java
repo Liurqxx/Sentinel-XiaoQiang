@@ -193,6 +193,7 @@ public class CtSph implements Sph {
      */
     ProcessorSlot<Object> lookProcessChain(ResourceWrapper resourceWrapper) {
         ProcessorSlotChain chain = chainMap.get(resourceWrapper);
+        //DCL创建chain链条
         if (chain == null) {
             synchronized (LOCK) {
                 chain = chainMap.get(resourceWrapper);
@@ -202,10 +203,12 @@ public class CtSph implements Sph {
                         return null;
                     }
 
+                    //默认 DefaultSlotChainBuilder.build() 生成 DefaultProcessorSlotChain
                     chain = SlotChainProvider.newSlotChain();
                     Map<ResourceWrapper, ProcessorSlotChain> newMap = new HashMap<ResourceWrapper, ProcessorSlotChain>(
                         chainMap.size() + 1);
                     newMap.putAll(chainMap);
+                    //Map<资源路径,DefaultProcessorSlotChain>
                     newMap.put(resourceWrapper, chain);
                     chainMap = newMap;
                 }
